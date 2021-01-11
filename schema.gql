@@ -1,0 +1,47 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type ElementoEntrada {
+  nombre: String!
+  descripcion: String!
+}
+
+type entradasDto {
+  id: String!
+  nombre: String!
+  plantilla: String!
+  elementosE: [ElementoEntrada!]!
+}
+
+type LetraExcel {
+  letra: String!
+  pags: [Float!]!
+}
+
+type ExcelAnalizadoDto {
+  id: String!
+  nombre: String!
+  cantPags: Float!
+  letras: [LetraExcel!]!
+}
+
+type Query {
+  entradas: [entradasDto!]!
+  datosDeFuenteRegistrada(idDeExcel: String!): ExcelAnalizadoDto!
+}
+
+type Mutation {
+  crearEntrada(nuevaEntrada: nuevaEntradaDto!): entradasDto!
+}
+
+input nuevaEntradaDto {
+  nombre: String!
+  plantilla: String!
+  elementosE: [ElementoEntradaNuevaEntradaDto!]!
+}
+
+input ElementoEntradaNuevaEntradaDto {
+  nombre: String!
+  descripcion: String!
+}
